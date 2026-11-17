@@ -4,35 +4,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .card {
-    width: 500px;
-    height: 300px;
-    background-color: lightblue;
-    position: relative;
-    overflow: hidden;
-}
-
-.card p {
-    position: absolute;
-    margin: 0;
-    background: radial-gradient(circle, rgba(220, 22, 22, 0.5), rgba(255, 255, 255, 0.1))   ;
-    width:50px;
-    height:50px;
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-}
-    </style>
+    <title>Task Manager</title>
 </head>
 
 <body>
-    <p id="para1">hello world</p>
-       <a href="#">link1</a>
-       <a href="#">link2</a>
-       <a href="#">link3</a>
+    <!-- DOM Task , create a small task Manager  -->
+    <!-- add task form
+title ,description , date
+task manager :-folder
+task.html , task.js :-files
+-->
+    <h1> Task Manager</h1>
+    <button>click </button>
     <script>
+        let btn = document.querySelector("button");
+        //  click
+        // btn.onclick = ()=>{
+        //     console.log("this is click handler")
+        // }
+        // addevent lisenter
+        document.querySelector("body").addEventListener("click", (event) => {
+            console.log("body event fired", event.target)
+        }, {
+            capture: true
+        })
+        btn.addEventListener("click", () => {
+            console.log('event fired')
+        }, {
+            once: false,
+            passive: false,
+            capture: false
+        })
+        // 16 nov absentis
+        // 1, 4, 5, 6, 14, 16, 17, 18, 20, 21, 22, 30, 32, 36, 44, 46, 48, 51, 54, 57, 58, 60, 62, 63, 67, 68, 69
+    </script>
+    <form>
+        <label for="title">Title</label>
+        <br> <input type="text" name="title">
+        <br> <label for="description">Description</label>
+        <br> <input type="text" name="description">
+        <br> <label for="date">Date</label>
+        <br> <input type="date" name="date">
+        <br> <br> <button>submit</button>
+    </form>
+    <table width="50%" cellpadding="20px" border>
+        <thead>
+            <tr>
+                <th>Sno</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <!-- addEventListener method used to add events -->
+    <script>
+        let form = document.querySelector("form");
+        let tasks = [];
+        let isUpdate = false;
+        let updateIndex = null;
+        let submitbtn = document.querySelector("form button");
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            let title = event.target.title.value;
+            let description = event.target.description.value;
+            let date = event.target.date.value;
+            let newtask = { title, description, date };
+            if (isUpdate) {
+                tasks.splice(updateIndex, 1, newtask);
+                isUpdate = false;
+                updateIndex = null;
+                submitbtn.textContent = "submit"
+            } else {
+                tasks.push(newtask);
+            }
+            form.reset();
+            showtask();
+        });
+
+        let deletehandler = (index) => {
+            tasks.splice(index, 1);
+            showtask();
+        }
+
+        let updatehandler = (index) => {
+            let input = document.querySelectorAll("input");
+            input[0].value = tasks[index].title;
+            input[1].value = tasks[index].description;
+            input[2].value = tasks[index].date;
+            isUpdate = true;
+            updateIndex = index;
+            submitbtn.textContent = "update"
+        }
+        function showtask() {
+            let tbody = document.querySelector("tbody");
+            tbody.innerHTML = "";
+            tasks.map((task, index) => {
+                tbody.innerHTML += `<tr> 
+            <td>${index + 1}</td>    
+            <td>${task.title}</td>    
+            <td>${task.description}</td>    
+            <td>${task.date}</td>    
+            <td> <button onclick="deletehandler(${index})">Delete</button></td>    
+            <td> <button onclick="updatehandler(${index})">update</button></td>    
+                </tr> `
+            });
+        }
+    </script>
+
+
+
+
+
+    <!-- <p id="para1" class="paraclass">hello world</p>
+    <p id="para2" class="paraclass">hello world</p>
+    <p id="para3" class="paraclass">hello world</p>
+    <h3>hello div outside</h3>
+      -->
+    <!-- <form>
+        <input type="text" name="user" value="7">
+        <input type="radio" name="radio" value="value1">
+        <input type="radio" name="radio" value="value2">
+        <input type="checkbox" name="check" value="value3">
+        <input type="checkbox" name="check" value="value4">
+        <input type="submit" value="submit">
+    </form>  
+    <button onclick="getdata()">getdata </button> -->
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+<!--     <script>
 
 //         let obj = { name: "zhangsan", age: 18, sex: "male" };
 //         let n = Object.create(obj);
@@ -120,9 +228,4 @@
 // }
 
 
-    </script>
-    <script src="script.js"></script>
-
-</body>
-
-</html>
+    </script> -->
