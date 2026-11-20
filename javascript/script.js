@@ -930,94 +930,246 @@
 // console.log(document.links);
 //Target Methods 
 
-    // DOM :- document Object Model ;
-        function getdata() {
-            let input = document.querySelector("input");
-            input.addEventListener("keydown", function (e) {
-                console.log(input.checkValidity());
-                input.reportValidity();
+// DOM :- document Object Model ;
+function getdata() {
+    let input = document.querySelector("input");
+    input.addEventListener("keydown", function (e) {
+        console.log(input.checkValidity());
+        input.reportValidity();
 
-            })
-            let radio = document.querySelectorAll("input[type=radio]")
-            let checkbox = document.querySelectorAll("input[type=checkbox]")
-            console.log(input.value);
-            let output = []
-            for (let i of checkbox) {
-                if (i.checked) {
-                    output.push(i.value)
-                }
-            }
-            console.log(output);
-            for (let i of radio) {
-                if (i.checked) {
-                    console.log(i.value)
-                }
-            }
+    })
+    let radio = document.querySelectorAll("input[type=radio]")
+    let checkbox = document.querySelectorAll("input[type=checkbox]")
+    console.log(input.value);
+    let output = []
+    for (let i of checkbox) {
+        if (i.checked) {
+            output.push(i.value)
         }
+    }
+    console.log(output);
+    for (let i of radio) {
+        if (i.checked) {
+            console.log(i.value)
+        }
+    }
+}
 
-        // let elem = document.getElementById("para1");
-        // let elem = document.getElementsByClassName("paraclass");
-        // console.log(elem);//array output
-        // for(let i of elem){
-        //     i.textContent = "new data here"
-        // }
-        // elem[3].textContent = "last element";
-        // elem.textContent = "new text";
-        // let elem = document.getElementsByTagName("div");
-        // console.log(elem);//array
-        // console.log(elem[0].textContent = "updated by tagname");
-        // let elemByname = document.getElementsByName("radio");
-        // console.log(elemByname);//nodeList of inputs;
-        // elemByname[0].checked =  true ;
-        // querySelector //it will select first matched element ,by  class ,id, tag ,sibiling selectors ,child selector
-        //   let elem  = document.querySelector("div");
-        //   let elem  = document.querySelector("#para2");//# used for id;
-        //   let elem  = document.querySelector(".paraclass");//# used for id;
-        //   let elem  = document.querySelector("div h3");//# used for id;
-        //   let elem  = document.querySelector("input[type=radio]");//# used for id;
-        //   console.log(elem);
-        //   querySelectorAll :- it select all the elements by given query
-        //  text Methods :- textCzontent, innerText ,innerHTML
-        //  let elemByAll = document.querySelectorAll("div");
-        //  console.log(elemByAll[0].textContent);
-        //  console.log(elemByAll[0].innerText);
-        //  console.log(elemByAll[0].innerHTML);
-        // //  elemByAll[0].textContent = "<p> hello world </p>";//print as it is
-        //  elemByAll[0].innerHTML = "<p> hello world </p>";
+// let elem = document.getElementById("para1");
+// let elem = document.getElementsByClassName("paraclass");
+// console.log(elem);//array output
+// for(let i of elem){
+//     i.textContent = "new data here"
+// }
+// elem[3].textContent = "last element";
+// elem.textContent = "new text";
+// let elem = document.getElementsByTagName("div");
+// console.log(elem);//array
+// console.log(elem[0].textContent = "updated by tagname");
+// let elemByname = document.getElementsByName("radio");
+// console.log(elemByname);//nodeList of inputs;
+// elemByname[0].checked =  true ;
+// querySelector //it will select first matched element ,by  class ,id, tag ,sibiling selectors ,child selector
+//   let elem  = document.querySelector("div");
+//   let elem  = document.querySelector("#para2");//# used for id;
+//   let elem  = document.querySelector(".paraclass");//# used for id;
+//   let elem  = document.querySelector("div h3");//# used for id;
+//   let elem  = document.querySelector("input[type=radio]");//# used for id;
+//   console.log(elem);
+//   querySelectorAll :- it select all the elements by given query
+//  text Methods :- textCzontent, innerText ,innerHTML
+//  let elemByAll = document.querySelectorAll("div");
+//  console.log(elemByAll[0].textContent);
+//  console.log(elemByAll[0].innerText);
+//  console.log(elemByAll[0].innerHTML);
+// //  elemByAll[0].textContent = "<p> hello world </p>";//print as it is
+//  elemByAll[0].innerHTML = "<p> hello world </p>";
 
-        // setAttribute ,getAttribute ,removeAttribute , hasAttribute
-        // let p = document.querySelector("p");
-        // console.log(p.getAttribute("id"))
-        // console.log(p.getAttribute("style"))//null
+// setAttribute ,getAttribute ,removeAttribute , hasAttribute
+// let p = document.querySelector("p");
+// console.log(p.getAttribute("id"))
+// console.log(p.getAttribute("style"))//null
 
-        // p.setAttribute("style", "color:red");
-        // p.setAttribute("id", "newid");
-        // console.log(p.hasAttribute("style"))//boolean
-        // p.removeAttribute("style");
+// p.setAttribute("style", "color:red");
+// p.setAttribute("id", "newid");
+// console.log(p.hasAttribute("style"))//boolean
+// p.removeAttribute("style");
 
-        // //className,  classList (to update ,add,remove,toggle,check);
-        // console.log(p.className);//paraclass
-        // p.className = "newclass";
+// //className,  classList (to update ,add,remove,toggle,check);
+// console.log(p.className);//paraclass
+// p.className = "newclass";
 
-        // p.classList.add("xyz", "abc");
-        // p.classList.remove("newclass");
-        // console.log(p.classList.contains("newclass"));
-        // p.classList.toggle("newclass") // add if not present and remove if present;
-        // let show = true
-        // function toggle() {
-        //     // document.querySelector(".box").classList.toggle("hide")
-        //     if (show) {
-        //         document.querySelector(".box").style.display = "none"
-        //         show = false;
-        //     } else {
-        //         show = true;
-        //         document.querySelector(".box").style.display = "block"
-        //     }
-        // }
+// p.classList.add("xyz", "abc");
+// p.classList.remove("newclass");
+// console.log(p.classList.contains("newclass"));
+// p.classList.toggle("newclass") // add if not present and remove if present;
+// let show = true
+// function toggle() {
+//     // document.querySelector(".box").classList.toggle("hide")
+//     if (show) {
+//         document.querySelector(".box").style.display = "none"
+//         show = false;
+//     } else {
+//         show = true;
+//         document.querySelector(".box").style.display = "block"
+//     }
+// }
 
-        // //style:- used to add css ,only inline css .
-        // p.style.backgroundColor = "green";
-        // p.style.color = "white";
+// //style:- used to add css ,only inline css .
+// p.style.backgroundColor = "green";
+// p.style.color = "white";
 
-        // // form :-  get data ;
+// // form :-  get data ;
+
+// Events :- Mouse, Keyboard ,Form ,Window 
+let btn = document.querySelector("button");
+btn.addEventListener("dblclick", (event) => {
+    console.log(event.type)
+    console.log(event.target)
+    event.target.style.color = "red"
+});
+
+//event deligation
+
+// we have 100 buttons with diff colornames, now we want to apply this color to our body tag,by using event deligation
+
+// document.querySelector("#btn").addEventListener("click", () => {
+//         let radio = document.querySelectorAll("input[type=radio]");
+//         for (let i of radio) {
+//             if (i.checked) {
+//                 console.log(i.value)
+//             }
+//         }
+//     })
+
+//     //17 nov ;
+//     // absent:- 1,5,6,7,13,14,15,17,20,21,30,38,46,48,51,54,60,62,63,64,67,  
+//     let select = document.querySelector("select");
+//     select.addEventListener("change", (e) => {
+//         console.log(e.target.value)
+//     })
+//     let input = document.querySelector("input");
+//     input.addEventListener("input", (e) => {
+//         document.querySelector("p").textContent = e.target.value
+//     });
+
+// let str = "god";
+// let k = /g\d\d/;
+// let t = /go?d/;
+// console.log(t.test(str))
+//form events :- submit, change,input , blur , focus
+//keyboard events apply only on form, and body tag
+
+// let input = document.querySelector("input");
+// input.addEventListener("keyup", (e) => {
+//     console.log(e.target.value, e.target.value.length)
+// });
+
+
+
+// let body = document.querySelector("body");
+// body.addEventListener("keydown", (e) => {
+//     if (e.key == "s" && e.ctrlKey) {
+//         alert("file save")
+//     }
+//     console.log(e.key, e.keyCode);//event applied on
+// });
+// body.addEventListener("keyup", (e) => {
+//     console.log("keyup event ", e.key, e.keyCode);//event applied on
+// });
+
+
+
+// let el = document.querySelector("button");
+// el.addEventListener("added", (e) =>
+//     console.log(e.detail.id));
+// el.dispatchEvent(new CustomEvent("added",
+//     { detail: { id: 7 } }));
+
+// let btn = document.querySelector("button");
+//  click
+// btn.onclick = ()=>{
+//     console.log("this is click handler")
+// }
+// addevent lisenter
+// document.querySelector("body").addEventListener("click", (event) => {
+//     console.log("body event fired", event.target)
+// }, {
+//     capture: true
+// })
+// btn.addEventListener("click", () => {
+//     console.log('event fired')
+// }, {
+//     once: false,
+//     passive: false,
+//     capture: false
+// })
+// // 16 nov absentis
+
+
+
+// function eventhandler(a) {
+//     console.log(a);
+// }
+// let btn1 = document.querySelector("button");
+// btn1.addEventListener("contextmenu", (e) => {
+//     e.preventDefault()
+//     console.log("right click")
+// });
+// // event capturing :- when event travel from parent to child
+// let body = document.querySelector("body");
+// body.addEventListener("click", (e) => {
+//     console.log("body element");//event applied on
+// }, { capture: true });
+// let btn1 = document.querySelector("button");
+// btn1.addEventListener("click", (e) => {
+//     console.log("btn click")
+// })
+
+// // event bubbling :- when event travel from child to parent
+// let body = document.querySelector("body");
+// body.addEventListener("click", (e) => {
+//     console.log("body element");//event applied on
+// });
+// let btn1 = document.querySelector("button");
+// btn1.addEventListener("click", (e) => {
+//     e.stopPropagation();//it stop the event from bubbling
+//     console.log("btn click")
+// })
+
+// document.querySelector("#btn").addEventListener("click", () => {
+//     let radio = document.querySelectorAll("input[type=radio]");
+//     for (let i of radio) {
+//         if (i.checked) {
+//             console.log(i.value)
+//         }
+//     }
+// })
+
+//17 nov ;
+// absent:- 1,5,6,7,13,14,15,17,20,21,30,38,46,48,51,54,60,62,63,64,67,  
+
+
+// let select = document.querySelector("select");
+// select.addEventListener("change", (e) => {
+//     console.log(e.target.value)
+// })
+// let input = document.querySelector("input");
+// input.addEventListener("input", (e) => {
+//     document.querySelector("p").textContent = e.target.value
+// });
+//checkbox selection :-
+document.querySelector("#btn").addEventListener("click", () => {
+    let check = document.querySelectorAll("input[type=checkbox]");
+    let checkoutput = [];
+    for (let i of check) {
+        if (i.checked) {
+            checkoutput.push(i.value)
+        }
+    }
+    console.log(checkoutput);
+    let file = document.querySelector("input[type=file]");
+    console.log(file.files)
+    document.querySelector("img").src = URL.createObjectURL(file.files[0]);
+});
 
